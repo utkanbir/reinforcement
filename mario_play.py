@@ -22,19 +22,19 @@ class GrayScaleResize(gym.ObservationWrapper):
         return np.expand_dims(frame, -1)
 
 # Env
-env = mario_make("SuperMarioBros-1-1-v0")
+env = mario_make("SuperMarioBros-1-1-v3")
 env = JoypadSpace(env, SIMPLE_MOVEMENT)
 env = GrayScaleResize(env)
 env = FrameStack(env, 4)
 
 model = PPO.load("mario_ppo")
 
-obs, info = env.reset()
+obs = env.reset()
 done = False
 
 while not done:
     action, _ = model.predict(obs)
-    obs, reward, done, trunc, info = env.step(action)
+    obs, reward, done, info = env.step(action)
 
     frame = env.render()
 

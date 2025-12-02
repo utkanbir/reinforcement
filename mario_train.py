@@ -20,7 +20,7 @@ class GrayScaleResize(gym.ObservationWrapper):
         frame = cv2.resize(frame, (84, 84), interpolation=cv2.INTER_AREA)
         return np.expand_dims(frame, -1)
 
-env = mario_make("SuperMarioBros-1-1-v0")
+env = mario_make("SuperMarioBros-1-1-v3")
 env = JoypadSpace(env, SIMPLE_MOVEMENT)
 env = GrayScaleResize(env)
 env = FrameStack(env, 4)

@@ -1,0 +1,14 @@
+[project]
+name = "reinforcement"
+version = "0.1.0"
+description = "Super Mario Bros reinforcement learning project"
+requires-python = ">=3.8"
+dependencies = [
+    "gymnasium",
+    "gym-super-mario-bros",
+    "nes-py",
+    "numpy<2.0",
+    "opencv-python",
+    "stable-baselines3",
+]
+
